@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package whatw_golang_nodejs;
+
+option go_package = "pb/nodejs";
+
+message Avatars {
+    int32 id = 1;
+    string image = 2;
+    int32 price = 3;
+}
+
+message AvatarsRequest {
+}
+
+message AvatarResponse {
+    repeated Avatars data = 1;
+}
+
+service AvatarService {
+    rpc GetAvatars(AvatarsRequest) returns (AvatarResponse) {};
+}

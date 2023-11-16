@@ -22,6 +22,7 @@ var apiResponse struct {
 	Success      bool   `json:"success"`
 	Message      string `json:"message"`
 	Data []struct {
+		ID int `json:"id"`
 		Difficulty         string `json:"difficulty"`
 		Question           string `json:"question"`
 		CorrectAnswer      string `json:"correct_answer"`
@@ -58,6 +59,7 @@ func (s *Server) GetQuestion(ctx context.Context, req *pb_laravel.QuestionReques
 	var dataRespose []*pb_laravel.Question
 	for _, q := range apiResponse.Data {
 		dataRespose = append(dataRespose, &pb_laravel.Question{
+			Id:                 int32(q.ID),
 			Difficulty:         q.Difficulty,
 			Question:           q.Question,
 			CorrectAnswer:      q.CorrectAnswer,

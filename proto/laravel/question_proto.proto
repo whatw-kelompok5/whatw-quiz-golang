@@ -5,12 +5,13 @@ package whatw_golang_laravel;
 option go_package = "pb/laravel";
 
 message Question {
-    string difficulty = 1;
-    string question = 2;
-    string correct_answer = 3;
-    string incorrect_answer1 = 4;
-    string incorrect_answer2 = 5;
-    string incorrect_answer3 = 6;
+    int32 id = 1;
+    string difficulty = 2;
+    string question = 3;
+    string correct_answer = 4;
+    string incorrect_answer1 = 5;
+    string incorrect_answer2 = 6;
+    string incorrect_answer3 = 7;
 }
 
 message QuestionRequest {

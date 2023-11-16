@@ -7,7 +7,9 @@ import (
 	"net"
 	"os"
 	"whatw-golang/cmd/server/laravel_grpc"
+	"whatw-golang/cmd/server/nodejs_grpc"
 	pb_laravel "whatw-golang/pb/laravel"
+	pb_nodejs "whatw-golang/pb/nodejs"
 
 	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
@@ -20,6 +22,7 @@ func RunGRPCServer() {
 	// gRPC server
 	grpcServer := grpc.NewServer()
 	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_laravel.QuestionService_ServiceDesc, pb_laravel.QuestionServiceServer(&laravel_grpc.Server{}))
+	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_nodejs.AvatarService_ServiceDesc, pb_nodejs.AvatarServiceServer(&nodejs_grpc.ServerNodejs{}))
 
 	// Start gRPC server in a separate goroutine
 	go func() {

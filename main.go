@@ -15,7 +15,7 @@ func main() {
 
 	server.RunGRPCServer()
 
-	fmt.Println("Fiber server is running on port" + "", PORTFIBER)
+	fmt.Println("Fiber server is running on port"+ PORTFIBER)
 	if err := app.Listen(PORTFIBER); err != nil {
 		log.Fatalf("Failed to start Fiber server: %v", err)
 	}
