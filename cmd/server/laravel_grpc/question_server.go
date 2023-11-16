@@ -18,19 +18,6 @@ type Server struct {
 	pb.QuestionServiceServer
 }
 
-// func (s *Server) GetDataFromDB(ctx context.Context, req *pb.QuestionRequest) (*pb.QuestionResponse, error) {
-// 	var quiz pb.QuestionResponse
-// 	if err := config.DB.Table("quizzes").
-// 		Select("difficulty, question, correct_answer, incoorrect_answers1, incoorrect_answers2, incoorrect_answers3").
-// 		Where("id = ?", req.Id).
-// 		First(&quiz).
-// 		Error; err != nil {
-// 		return nil, fmt.Errorf("failed to query database: %v", err)
-// 	}
-
-// 	return &quiz, nil
-// }
-
 var apiResponse struct {
 	Success      bool   `json:"success"`
 	Message      string `json:"message"`
