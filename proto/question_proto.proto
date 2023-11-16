@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package whatw_golang_laravel;
+
+option go_package = "whatw-golang/proto";
+
+message Question {
+    string difficulty = 1;
+    string question = 2;
+    string correct_answer = 3;
+    string incorrect_answer1 = 4;
+    string incorrect_answer2 = 5;
+    string incorrect_answer3 = 6;
+}
+
+message QuestionRequest {
+}
+
+message QuestionResponse {
+    repeated Question data = 1;
+}
+
+service QuestionService {
+    rpc GetQuestion(QuestionRequest) returns (QuestionResponse) {};
+}
