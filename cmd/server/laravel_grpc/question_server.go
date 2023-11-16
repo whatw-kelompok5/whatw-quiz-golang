@@ -9,13 +9,13 @@ import (
 	// "os/ioutil"
 	"net/http"
 	"os"
-	pb "whatw-golang/proto"
+	pb_laravel "whatw-golang/pb/laravel"
 
 	"github.com/joho/godotenv"
 )
 
 type Server struct {
-	pb.QuestionServiceServer
+	pb_laravel.QuestionServiceServer
 }
 
 var apiResponse struct {
@@ -30,7 +30,7 @@ var apiResponse struct {
 		IncoorrectAnswers3 string `json:"incorrect_answer3"`
 	} `json:"data"`
 }
-func (s *Server) GetQuestion(ctx context.Context, req *pb.QuestionRequest) (*pb.QuestionResponse, error) {
+func (s *Server) GetQuestion(ctx context.Context, req *pb_laravel.QuestionRequest) (*pb_laravel.QuestionResponse, error) {
 	godotenv.Load(".env")
 	apiURL := os.Getenv("API_URL_LARAVEL")
 	resp, err := http.Get(apiURL)
@@ -55,9 +55,9 @@ func (s *Server) GetQuestion(ctx context.Context, req *pb.QuestionRequest) (*pb.
 	}
 	
 
-	var dataRespose []*pb.Question
+	var dataRespose []*pb_laravel.Question
 	for _, q := range apiResponse.Data {
-		dataRespose = append(dataRespose, &pb.Question{
+		dataRespose = append(dataRespose, &pb_laravel.Question{
 			Difficulty:         q.Difficulty,
 			Question:           q.Question,
 			CorrectAnswer:      q.CorrectAnswer,
@@ -67,7 +67,7 @@ func (s *Server) GetQuestion(ctx context.Context, req *pb.QuestionRequest) (*pb.
 		})
 	}
 
-	return &pb.QuestionResponse{
+	return &pb_laravel.QuestionResponse{
 		Data: dataRespose,
 	}, nil
 }

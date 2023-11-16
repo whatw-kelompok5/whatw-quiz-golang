@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v4.25.0
-// source: proto/question_proto.proto
+// source: question_proto.proto
 
-package proto
+package laravel
 
 import (
 	context "context"
@@ -101,5 +101,5 @@ var QuestionService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/question_proto.proto",
+	Metadata: "question_proto.proto",
 }

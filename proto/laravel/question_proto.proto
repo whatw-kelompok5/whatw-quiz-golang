@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package whatw_golang_laravel;
 
-option go_package = "whatw-golang/proto";
+option go_package = "pb/laravel";
 
 message Question {
     string difficulty = 1;
