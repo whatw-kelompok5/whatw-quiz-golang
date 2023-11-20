@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package whatw_golang_laravel;
+
+option go_package = "pb/laravel/avatar";
+
+message Avatar {
+    int32 id = 1;
+    string image = 2;
+    int32 price = 3;
+}
+
+message AvatarRequest {
+}
+
+message AvatarResponse {
+    repeated Avatar data = 1;
+}
+
+service AvatarService {
+    rpc GetAvatar(AvatarRequest) returns (AvatarResponse) {};
+}

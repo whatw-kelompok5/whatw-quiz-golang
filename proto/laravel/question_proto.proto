@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package whatw_golang_laravel;
 
-option go_package = "pb/laravel";
+option go_package = "pb/laravel/question";
 
 message Question {
     int32 id = 1;

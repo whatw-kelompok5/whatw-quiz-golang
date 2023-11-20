@@ -6,23 +6,21 @@ import (
 	"log"
 	"net"
 	"os"
-	"whatw-golang/cmd/server/laravel_grpc"
-	"whatw-golang/cmd/server/nodejs_grpc"
-	pb_laravel "whatw-golang/pb/laravel"
-	pb_nodejs "whatw-golang/pb/nodejs"
+	"whatw-golang/cmd/server/laravel_grpc/avatar"
+	"whatw-golang/cmd/server/laravel_grpc/question"
+	pb_laravel_avatar "whatw-golang/pb/laravel/avatar"
+	pb_laravel_question "whatw-golang/pb/laravel/question"
 
-	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
 )
 
 func RunGRPCServer() {
-	godotenv.Load(".env")
 	PORT := os.Getenv("PORT_SERVER_GRPC")
 
 	// gRPC server
 	grpcServer := grpc.NewServer()
-	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_laravel.QuestionService_ServiceDesc, pb_laravel.QuestionServiceServer(&laravel_grpc.Server{}))
-	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_nodejs.AvatarService_ServiceDesc, pb_nodejs.AvatarServiceServer(&nodejs_grpc.ServerNodejs{}))
+	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_laravel_question.QuestionService_ServiceDesc, pb_laravel_question.QuestionServiceServer(&question.ServerQuestion{}))
+	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_laravel_avatar.AvatarService_ServiceDesc, pb_laravel_avatar.AvatarServiceServer(&avatar.ServerAvatar{}))
 
 	// Start gRPC server in a separate goroutine
 	go func() {
@@ -31,7 +29,7 @@ func RunGRPCServer() {
 			log.Fatalf("Failed to listen: %v", err)
 		}
 
-		fmt.Println("gRPC server is running on port" + PORT)
+		fmt.Println("gRPC server is running on port:" + PORT)
 		if err := grpcServer.Serve(listener); err != nil {
 			log.Fatalf("Failed to serve: %v", err)
 		}
