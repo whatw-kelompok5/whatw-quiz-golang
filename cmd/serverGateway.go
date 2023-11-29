@@ -5,17 +5,16 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
-	"os"
 	"whatw-golang/pb/laravel/avatar"
 	"whatw-golang/pb/laravel/question"
 
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"golang.org/x/net/http2"
 	"google.golang.org/grpc"
+	"golang.org/x/net/http2"
 )
 
 var (
-	grpcServerEndpoint = flag.String("grpc-server-endpoint", os.Getenv("GRPC_SERVER_ADDRESS"), "gRPC server endpoint")
+	grpcServerEndpoint = flag.String("grpc-server-endpoint", "localhost:8084", "gRPC server endpoint")
 )
 
 func RunGRPCServerGateway() error {
