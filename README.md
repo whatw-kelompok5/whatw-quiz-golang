@@ -3,7 +3,7 @@
 How to run this project:
 
 1. Run `go mod tidy` command
-2. Run `go install github.com/cosmtrek/air@latest` (if want using air)
+2. Run `go install github.com/cosmtrek/air@latest` (if want using air, If you don't want to use this, you can skip this step)
 3. Run `go run main.go` or `air` for running using air
 
 
