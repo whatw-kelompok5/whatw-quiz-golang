@@ -1,6 +1,6 @@
 # What Happen Around The World
 
-Step to run this project:
+How to run this project:
 
 1. Run `go mod tidy` command
 2. Run `go install github.com/cosmtrek/air@latest` (if want using air)
