@@ -5,13 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-
-	// "os/ioutil"
 	"net/http"
 	"os"
 	pb_laravel_question "whatw-golang/pb/laravel/question"
-
-	"github.com/joho/godotenv"
 )
 
 type ServerQuestion struct {
@@ -31,8 +27,7 @@ var apiResponse struct {
 		IncoorrectAnswers3 string `json:"incorrect_answer3"`
 	} `json:"data"`
 }
-func (s *ServerQuestion) GetQuestion(ctx context.Context, req *pb_laravel_question.QuestionRequest) (*pb_laravel_question.QuestionResponse, error) {
-	godotenv.Load(".env")
+func (*ServerQuestion) GetQuestion(ctx context.Context, req *pb_laravel_question.QuestionRequest) (*pb_laravel_question.QuestionResponse, error) {
 	apiURL := os.Getenv("API_URL_LARAVEL_QUESTION")
 	resp, err := http.Get(apiURL)
 	if err != nil {

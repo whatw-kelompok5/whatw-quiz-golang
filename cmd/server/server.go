@@ -15,12 +15,12 @@ import (
 )
 
 func RunGRPCServer() {
-	PORT := os.Getenv("PORT_SERVER_GRPC")
-
+	PORT := os.Getenv("GRPC_SERVER_ADDRESS")
+	
 	// gRPC server
 	grpcServer := grpc.NewServer()
-	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_laravel_question.QuestionService_ServiceDesc, pb_laravel_question.QuestionServiceServer(&question.ServerQuestion{}))
-	grpc.ServiceRegistrar(grpcServer).RegisterService(&pb_laravel_avatar.AvatarService_ServiceDesc, pb_laravel_avatar.AvatarServiceServer(&avatar.ServerAvatar{}))
+	pb_laravel_avatar.RegisterAvatarServiceServer(grpcServer, &avatar.ServerAvatar{})
+	pb_laravel_question.RegisterQuestionServiceServer(grpcServer, &question.ServerQuestion{})
 
 	// Start gRPC server in a separate goroutine
 	go func() {

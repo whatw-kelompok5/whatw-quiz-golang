@@ -8,11 +8,10 @@ import (
 	"net/http"
 	"os"
 	pb_laravel_avatar "whatw-golang/pb/laravel/avatar"
-
 )
 
 type ServerAvatar struct {
-	pb_laravel_avatar.AvatarServiceServer
+	pb_laravel_avatar.UnimplementedAvatarServiceServer
 }
 
 var apiResponse struct {
@@ -24,8 +23,9 @@ var apiResponse struct {
 		Price int `json:"price"`
 	} `json:"data"`
 }
-func (s *ServerAvatar) GetAvatar(ctx context.Context, req *pb_laravel_avatar.AvatarRequest) (*pb_laravel_avatar.AvatarResponse, error) {
+func (*ServerAvatar) GetAvatar(ctx context.Context, req *pb_laravel_avatar.AvatarRequest) (*pb_laravel_avatar.AvatarResponse, error) {	
 	apiURL := os.Getenv("API_URL_LARAVEL_AVATAR")
+
 	resp, err := http.Get(apiURL)
 	if err != nil {
 		return nil, fmt.Errorf("failed to fetch data from API: %v", err)

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package whatw_golang_laravel;
+option go_package = "pb/laravel/question";
+import "google/api/annotations.proto";
+
+message Question {
+    int32 id = 1;
+    string difficulty = 2;
+    string question = 3;
+    string correct_answer = 4;
+    string incorrect_answer1 = 5;
+    string incorrect_answer2 = 6;
+    string incorrect_answer3 = 7;
+}
+
+message QuestionRequest {
+}
+
+message QuestionResponse {
+    repeated Question data = 1;
+}
+
+service QuestionService {
+    rpc GetQuestion(QuestionRequest) returns (QuestionResponse) {
+        option (google.api.http) = {
+            get: "/api/questions"
+        };
+    };
+}
