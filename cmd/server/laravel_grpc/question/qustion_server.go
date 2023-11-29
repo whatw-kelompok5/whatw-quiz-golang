@@ -23,10 +23,8 @@ var apiResponse struct {
 		ID int `json:"id"`
 		Difficulty         string `json:"difficulty"`
 		Question           string `json:"question"`
-		CorrectAnswer      string `json:"correct_answer"`
-		IncoorrectAnswers1 string `json:"incorrect_answer1"`
-		IncoorrectAnswers2 string `json:"incorrect_answer2"`
-		IncoorrectAnswers3 string `json:"incorrect_answer3"`
+		Options            []string `json:"options"`
+		Answer             string `json:"answer"`
 	} `json:"data"`
 }
 func (*ServerQuestion) GetQuestion(ctx context.Context, req *pb_laravel_question.QuestionRequest) (*pb_laravel_question.QuestionResponse, error) {
@@ -68,10 +66,8 @@ func (*ServerQuestion) GetQuestion(ctx context.Context, req *pb_laravel_question
 			Id:                 int32(q.ID),
 			Difficulty:         q.Difficulty,
 			Question:           q.Question,
-			CorrectAnswer:      q.CorrectAnswer,
-			IncorrectAnswer1: q.IncoorrectAnswers1,
-			IncorrectAnswer2: q.IncoorrectAnswers2,
-			IncorrectAnswer3: q.IncoorrectAnswers3,
+			Options:            q.Options,
+			Answer:             q.Answer,
 		})
 	}
 
