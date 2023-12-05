@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"whatw-golang/cmd"
-	"whatw-golang/cmd/server"
+	grpc "whatw-golang/cmd/server/gRPC"
+	gateway "whatw-golang/cmd/server/gateway"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
@@ -16,8 +16,8 @@ func main() {
 	app := fiber.New()
 	PORTFIBER := os.Getenv("FIBER_SERVER_ADDRESS")
 
-	go server.RunGRPCServer()
-	go cmd.RunGRPCServerGateway()
+	go grpc.RunGRPCServer()
+	go gateway.RunGRPCServerGateway()
 
 	fmt.Println("Fiber server is running on port:"+ PORTFIBER)
 	if err := app.Listen(":"+ PORTFIBER); err != nil {
