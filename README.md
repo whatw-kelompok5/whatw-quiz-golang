@@ -25,19 +25,25 @@ response:
             "id": 2,
             "difficulty": "easy",
             "question": "Monas dibangun pada tahun berapa?",
-            "correct_answer": "17 Agustus 1961",
-            "incorrect_answer1": "17 Agustus 1950",
-            "incorrect_answer2": "17 Agustus 1945",
-            "incorrect_answer3": "17 Agustus 1949"
+            "options": [
+                "17 Agustus 1961",
+                "17 Agustus 1950",
+                "17 Agustus 1945",
+                "17 Agustus 1949"
+            ],
+            "answer": "17 Agustus 1961"
         },
         {
             "id": 3,
             "difficulty": "easy",
             "question": "Monas Berada di mana?",
-            "correct_answer": "Jakarta",
-            "incorrect_answer1": "Bandung",
-            "incorrect_answer2": "Surabaya",
-            "incorrect_answer3": "Malang"
+            "options": [
+                "Jakarta",
+                "Bandung",
+                "Surabaya",
+                "Malang"
+            ],
+            "answer": "Jakarta"
         }
     ]
 }
