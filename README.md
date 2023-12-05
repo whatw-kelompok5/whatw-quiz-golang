@@ -58,31 +58,58 @@ response:
         {
             "id": 15,
             "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1701080476/whatw-quiz/ond5gfhxe6huydwbapsp.jpg",
-            "price": 150
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 150
+            }
         },
         {
             "id": 13,
-            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151875/whatw-quiz/ba3vdvz6ey9ygjd0bpgh.png"
+            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151875/whatw-quiz/ba3vdvz6ey9ygjd0bpgh.png",
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 0
+            }
         },
         {
             "id": 12,
-            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151861/whatw-quiz/axybbjuikvl5ueuhhiag.png"
+            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151861/whatw-quiz/axybbjuikvl5ueuhhiag.png",
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 0
+            }
         },
         {
             "id": 11,
-            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151800/whatw-quiz/twf4tjxzomrmsczjmswx.png"
+            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151800/whatw-quiz/twf4tjxzomrmsczjmswx.png",
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 0
+            }
         },
         {
             "id": 10,
-            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151782/whatw-quiz/nxdxs3u9o5gprua9sxzj.png"
+            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151782/whatw-quiz/nxdxs3u9o5gprua9sxzj.png",
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 0
+            }
         },
         {
             "id": 9,
-            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151767/whatw-quiz/bswzniegllk9ry5n06ae.png"
+            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151767/whatw-quiz/bswzniegllk9ry5n06ae.png",
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 0
+            }
         },
         {
             "id": 8,
-            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151750/whatw-quiz/rd1zvvu7t21ad7vitmoe.png"
+            "image": "https://res.cloudinary.com/dtha7yn1x/image/upload/v1700151750/whatw-quiz/rd1zvvu7t21ad7vitmoe.png",
+            "price": {
+                "@type": "type.googleapis.com/google.protobuf.Int32Value",
+                "value": 0
+            }
         }
     ]
 }
